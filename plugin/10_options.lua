@@ -22,7 +22,7 @@
 -- General ====================================================================
 vim.g.mapleader = ' ' -- Use `<Space>` as <Leader> key
 
-vim.o.mouse       = 'a'            -- Enable mouse
+vim.o.mouse       = ''             -- Disable mouse
 vim.o.mousescroll = 'ver:25,hor:6' -- Customize mouse scroll
 vim.o.switchbuf   = 'usetab'       -- Use already opened buffers when switching
 vim.o.undofile    = true           -- Enable persistent undo
@@ -127,3 +127,13 @@ local diagnostic_opts = {
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup
 Config.later(function() vim.diagnostic.config(diagnostic_opts) end)
 -- stylua: ignore end
+vim.filetype.add({
+  extension = {
+    pp = 'puppet',
+  },
+})
+vim.filetype.add({
+  pattern = {
+    ['%.gitlab%-ci%.ya?ml'] = 'yaml.gitlab',
+  },
+})
