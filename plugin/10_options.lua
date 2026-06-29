@@ -34,6 +34,7 @@ vim.cmd('filetype plugin indent on')
 if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
 
 -- UI =========================================================================
+vim.o.relativenumber = true       -- Display relative line numbers
 vim.o.breakindent    = true       -- Indent wrapped lines to match line start
 vim.o.breakindentopt = 'list:-1'  -- Add padding for lists (if 'wrap' is set)
 vim.o.colorcolumn    = '+1'       -- Draw column on the right of maximum width
@@ -128,12 +129,12 @@ local diagnostic_opts = {
 Config.later(function() vim.diagnostic.config(diagnostic_opts) end)
 -- stylua: ignore end
 vim.filetype.add({
-  extension = {
-    pp = 'puppet',
-  },
+	extension = {
+		pp = "puppet",
+	},
 })
 vim.filetype.add({
-  pattern = {
-    ['%.gitlab%-ci%.ya?ml'] = 'yaml.gitlab',
-  },
+	pattern = {
+		["%.gitlab%-ci%.ya?ml"] = "yaml.gitlab",
+	},
 })
